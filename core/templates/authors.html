@@ -7,7 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>{{ article.title }}</h1>
-    <div>{{ article.text }}</div>
+    <a href = "{% url 'authors' %}">Auhors</a>
+    <a href = "{% url 'articles' %}">Articles</a>
+
+    <h1>Authors</h1>
+    <ol>
+    {% for author in authors %}
+        <li>{{ author.nickname }}</li>
+    {% endfor %}
+    </ol>
 </body>
 </html>
