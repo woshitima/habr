@@ -10,7 +10,7 @@ class Article(models.Model):
         on_delete = models.SET_NULL,
         null = True, blank = True,
         related_name = "article",
-        verbose_name = "Author"
+        verbose_name = "Автор"
     )
 
     readers = models.ManyToManyField(
@@ -26,7 +26,7 @@ class Author(models.Model):
     user = models.OneToOneField(
         to = User,
         related_name = "author",
-        verbose_name = "User",
+        verbose_name = "Пользователь",
         null = False,
         blank = False,
         on_delete = models.CASCADE
@@ -35,8 +35,8 @@ class Author(models.Model):
     nickname = models.CharField(max_length = 55)
 
     class Meta:
-        verbose_name = "Author"
-        verbose_name_plural = "Authors"
+        verbose_name = "Автор"
+        verbose_name_plural = "Авторы"
     
     def __str__(self):
         return self.nickname
