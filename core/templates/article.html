@@ -11,4 +11,5 @@
     <h6>Просмотры: {{ article.views }}</h6>
     <h6>Создано: {{ article.created_at }}</h6>
     <h6>Изменено: {{ article.updated_at }}</h6>
+    <a href="{% url 'article-edit' article.id %}">Редактировать</a>
 {% endblock %}
