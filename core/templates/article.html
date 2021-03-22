@@ -1,6 +1,14 @@
 {% extends 'base.html' %}
 
+{% block title %}
+    {{ article.title }}
+{% endblock %}
+
 {% block content %}
     <h1>{{ article.title }}</h1>
     <div>{{ article.text }}</div>
+    <br><br><br><br><br>
+    <h6>Просмотры: {{ article.views }}</h6>
+    <h6>Создано: {{ article.created_at }}</h6>
+    <h6>Изменено: {{ article.updated_at }}</h6>
 {% endblock %}

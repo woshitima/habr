@@ -20,6 +20,8 @@ def authors(request):
 
 def article(request, id):
     article = Article.objects.get(id = id)
+    article.views += 1
+    article.save()
     return render(
         request,
         "article.html",
