@@ -11,5 +11,12 @@
     <h6>Просмотры: {{ article.views }}</h6>
     <h6>Создано: {{ article.created_at }}</h6>
     <h6>Изменено: {{ article.updated_at }}</h6>
+    <p>
+        Автор:
+        <ul>
+            <li>Псевдоним - {{ article.author.nickname }}</li>
+            <li>Логин - {{ article.author.user.username }}</li>
+        </ul>
+    </p>
     <a href="{% url 'article-edit' article.id %}">Редактировать</a>
 {% endblock %}
