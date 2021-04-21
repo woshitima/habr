@@ -33,6 +33,10 @@ class Article(models.Model):
         auto_now = True
     )
 
+    is_active = models.BooleanField(
+        default = True
+    )
+
     def __str__(self):
         return self.title
 

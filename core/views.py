@@ -3,7 +3,7 @@ from .models import Article, Author
 
 
 def articles(request):
-    articles = Article.objects.all()
+    articles = Article.objects.filter(is_active = True)
     return render(
         request,
         "articles.html",
@@ -59,7 +59,7 @@ def add_article(request):
         new_article.title = title
         new_article.text = text
         user = request.user
-        
+
         if not Author.objects.filter(user = user).exists():
             author = Author(user = user, nickname = user.username)
             author.save()
@@ -68,3 +68,14 @@ def add_article(request):
         new_article.author = author
         new_article.save()
         return redirect(article_page, new_article.pk)
+
+def delete_article(request, id):
+    article = Article.objects.get(id = id)
+    article.delete()
+    return HttpResponse("Article Deleted!")
+
+def hide_article(request, id):
+    article = Article.objects.get(id = id)
+    article.is_active = False
+    article.save()
+    return redirect(articles)
